@@ -6,14 +6,14 @@ public class AI : MonoBehaviour {
 
 
 
-	public static int Play(List<string> tab)
+	public static int Play(List<string> tab, int depthMax)
     {
-        return minimax(0,tab, GameUtils.AISign);
+        return minimax(0,tab, GameUtils.AISign,depthMax);
     }
 
-    public static int minimax(int depth, List<string> tab, string playerSign)
+    public static int minimax(int depth, List<string> tab, string playerSign, int depthMax)
     {
-        if (depth > 3)
+        if (depth > depthMax)
             return 0;
         depth++;
 
@@ -37,11 +37,11 @@ public class AI : MonoBehaviour {
 
             if (playerSign == GameUtils.AISign)
             {
-                int result = minimax(depth,tab, GameUtils.humanSign);
+                int result = minimax(depth,tab, GameUtils.humanSign,depthMax);
                 move.Add(result);
             } else
             {
-                int result = minimax(depth,tab, GameUtils.AISign);
+                int result = minimax(depth,tab, GameUtils.AISign,depthMax);
                 move.Add(result);
             }
 
