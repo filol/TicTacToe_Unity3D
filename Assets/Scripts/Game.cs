@@ -12,17 +12,17 @@ public class Game : MonoBehaviour {
 
     public void SetUsed()
     {
-        RawImage RawImage = button.GetComponent<RawImage>();
+        RawImage rawImage = button.GetComponent<RawImage>();
         if (gameController.getPlayerSide()=="X")
         {
            
-           RawImage.texture = gameController.croix;
+           rawImage.texture = gameController.croix;
         }
         else
         {
-            RawImage.texture = gameController.rond;
+            rawImage.texture = gameController.rond;
         }
-        RawImage.color = Color.white;
+        rawImage.color = Color.white;
         buttonText.text = gameController.getPlayerSide();
         buttonText.color = Color.clear; 
         button.interactable = false;
